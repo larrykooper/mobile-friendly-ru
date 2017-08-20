@@ -11,6 +11,10 @@ class SessionsController < ApplicationController
   # request.env is a Ruby array that contains information about a visiting user’s and
   # server environments, including path_info, request_uri etc.
 
+  # request.env is ENORMOUS.
+  # request.env['omniauth.auth'] contains a lot of information, mainly info Google
+  # knows about me.
+
   # 'create' is the oauth2 callback we give to Google
   def create
     puts "MESSAGE 14 IN CREATE"

@@ -4,7 +4,7 @@ module SpreadsheetReader
     # https://github.com/gimite/google-drive-ruby
 
     require "rubygems"
-    require "google/api_client"
+    #require "google/api_client"
     require "google_drive"
     require "json"
 
@@ -17,7 +17,7 @@ module SpreadsheetReader
       :g_or_r, :project?, :bucket_list?, :priority_notes, :evernote_note, :link_1,
       :link_2, :link_3]
 
-    def SpreadsheetReader.get_sheet_data(sheet)
+    def SpreadsheetReader.get_sheet_data
         access_token = Token.last.fresh_token
         @@session = GoogleDrive.login_with_oauth(access_token)
 

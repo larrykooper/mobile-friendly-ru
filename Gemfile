@@ -8,6 +8,9 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 
+# jQuery
+gem 'jquery-rails', '4.3.1'
+
 # Authentication system
 gem 'omniauth', '1.6.1'
 

@@ -33,16 +33,12 @@ p {
 }
 
 .create-pdf,
-.get-gr-data {
+.get-data {
     margin-left: 133px;
 }
 
 .get-data {
     background-color: #e9b148;  // pumpkin
-}
-
-.create-pdf {
-    background-color: #33ccff;
 }
 
 .button-text {
@@ -64,17 +60,8 @@ p {
     width: 107px;
 }
 
-.create-pdf .button-text {
-    width: 84px;
-}
-
 #spinner {
     display: none;
-}
-
-.get-lc-data {
-    margin-top: 25px;
-    margin-left: 335px;
 }
 
 .data {
@@ -86,6 +73,6 @@ p {
     border: 1px solid black;
 }
 
-table td{
+table td {
     border: 1px solid black;
 }
