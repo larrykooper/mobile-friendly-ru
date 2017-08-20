@@ -1,5 +1,7 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :google_oauth2, ENV['MOBILE_RU_CLIENT_ID'], ENV['MOBILE_RU_CLIENT_SECRET'],
+  provider
+    :google_oauth2, ENV['MOBILE_RU_CLIENT_ID'],
+      ENV['MOBILE_RU_CLIENT_SECRET'],
     scope: ['email', 'https://www.googleapis.com/auth/drive',
       'https://spreadsheets.google.com/feeds/']
 
