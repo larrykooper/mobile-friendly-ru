@@ -21,9 +21,7 @@ module SpreadsheetReader
   # Returns spreadsheet data, or false if we need authentication
   def self.sheet_data
     access_token = Token.last.fresh_token
-    unless access_token
-      return false
-    end
+    return false unless access_token
     @session = GoogleDrive.login_with_oauth(access_token)
 
     sheet_key = ENV['TEST_RU_SHEET_KEY']
