@@ -5,6 +5,8 @@ AllCops:
     - 'config/puma.rb'
     - 'db/migrate/**/*'
     - 'db/schema.rb'
+    - 'config/initializers/omniauth.rb'
+    - 'test/test_helper.rb'
 
   # Cop names are not displayed in offense messages by default. Change behavior
   # by overriding DisplayCopNames, or by giving the -D/--display-cop-names
