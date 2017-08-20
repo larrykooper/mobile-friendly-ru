@@ -61,7 +61,7 @@ class Token < ActiveRecord::Base
     response = Net::HTTP.post_form(url, to_params)
     if response.is_a?(Net::HTTPBadRequest)
       puts "Response is 'bad request'"
-      raise MobileFriendlyRu::Error::NeedsAuthentication.new('Authentication needed')
+      raise MobileFriendlyRu::Error::NeedsAuthentication, 'Authentication needed'
     end
     puts 'Response is NOT bad request'
     response
