@@ -4,7 +4,6 @@ module SpreadsheetReader
     # https://github.com/gimite/google-drive-ruby
 
     require "rubygems"
-    #require "google/api_client"
     require "google_drive"
     require "json"
 
