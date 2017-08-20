@@ -7,6 +7,7 @@ module SpreadsheetReader
   require 'rubygems'
   require 'google_drive'
   require 'json'
+  require 'English'
 
   @session = nil
 
@@ -36,7 +37,7 @@ module SpreadsheetReader
       ws = @session.spreadsheet_by_key(sheet_key).worksheets[0]
     rescue StandardError => e
       puts 'I am in rescue!'
-      puts "#{$!}"
+      puts "#{$ERROR_INFO}"
       puts e.Message
       puts e.backtrace.inspect
     end
