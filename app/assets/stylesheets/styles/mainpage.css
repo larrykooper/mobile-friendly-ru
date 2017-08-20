@@ -3,7 +3,20 @@ body {
   font-size: 2.5em;
 }
 
-div.container > div:nth-of-type(odd) {
+.page-header {
+  position: fixed;
+  top: 0.4em;
+}
+
+.sorting-arrows {
+  margin-left: 16em;
+}
+
+div.rows-container {
+  margin-top: 2.0em;
+}
+
+div.rows-container > div:nth-of-type(odd) {
   background: #faedd2;
 }
 
@@ -12,7 +25,11 @@ div.container > div:nth-of-type(odd) {
   min-height: 4.26em;
 }
 
-.outside_inside {
+.row-text {
+  margin-left: 1em;
+}
+
+.outside-inside {
   position: absolute;
   left: 5em;
 }

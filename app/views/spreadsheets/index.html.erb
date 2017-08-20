@@ -1,11 +1,19 @@
-<div class='container'>
+<div class='page-header'>
+  <span class='sorting-arrows'>
+    <%= image_tag("sorting-arrows-50.png") %>
+  </span>
+</div>
+
+<div class='rows-container'>
   <% @rows.each do |row| %>
     <div class='row'>
-      <div class='top_line'>
-        <span class='ru_number'><%= row.ru_number %></span>
-        <span class='outside_inside'><%= row.outside_inside %></span>
+      <div class='row-text'>
+        <div class='top-line'>
+          <span class='ru-number'><%= row.ru_number %></span>
+          <span class='outside-inside'><%= row.outside_inside %></span>
+        </div>
+        <%= row.truncated_description %>
       </div>
-      <%= row.truncated_description %>
     </div>
 
   <% end %>
