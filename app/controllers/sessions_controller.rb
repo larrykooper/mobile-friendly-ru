@@ -26,6 +26,6 @@ class SessionsController < ApplicationController
       expires_at: Time.at(@auth['expires_at']).to_datetime
     )
     # Now we ask for the data
-    redirect_to '/spreadsheet/getdata' and return
+    redirect_to '/spreadsheet/getdata' && return
   end
 end

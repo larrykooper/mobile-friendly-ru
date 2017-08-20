@@ -4,7 +4,7 @@ class SpreadsheetsController < ApplicationController
   def getdata
     @data = SpreadsheetReader.get_sheet_data
     unless @data
-      redirect_to '/auth/google_oauth2' and return
+      redirect_to '/auth/google_oauth2' && return
     end
 
     respond_to do |format|
