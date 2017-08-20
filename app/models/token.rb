@@ -16,7 +16,6 @@ require 'json'
 # that is given by the authorization server (in this case, Google)
 # to the (my) application. The token is used when the application requests
 # a resource from the resource server (also at Google).
-
 class Token < ActiveRecord::Base
 
   def fresh_token
@@ -45,7 +44,8 @@ class Token < ActiveRecord::Base
     data = JSON.parse(response.body)
     update_attributes(
       access_token: data['access_token'],
-      expires_at: Time.now + (data['expires_in'].to_i).seconds)
+      expires_at: Time.now + (data['expires_in'].to_i).seconds
+    )
   end
 
   def request_token_from_google
@@ -58,13 +58,13 @@ class Token < ActiveRecord::Base
     # Google returns JSON data, that includes an access
     #   token good for another 60 minutes.
     #
-    url = URI("https://www.googleapis.com/oauth2/v3/token")
+    url = URI('https://www.googleapis.com/oauth2/v3/token')
     response = Net::HTTP.post_form(url, to_params)
     if response.is_a?(Net::HTTPBadRequest)
       puts "Response is 'bad request'"
-      raise MobileFriendlyRu::Error::NeedsAuthentication.new("Authentication needed")
+      raise MobileFriendlyRu::Error::NeedsAuthentication.new('Authentication needed')
     end
-    puts "Response is NOT bad request"
+    puts 'Response is NOT bad request'
     response
   end
 
@@ -78,10 +78,9 @@ class Token < ActiveRecord::Base
     # GOOGLE'S DOCS:
     #   https://developers.google.com/accounts/docs/OAuth2WebServer#refresh
     #   https://developers.google.com/identity/protocols/OAuth2WebServer
-    {'refresh_token' => refresh_token,
+    { 'refresh_token' => refresh_token,
     'client_id' => ENV['MOBILE_RU_CLIENT_ID'],
     'client_secret' => ENV['MOBILE_RU_CLIENT_SECRET'],
-    'grant_type' => 'refresh_token'}
+    'grant_type' => 'refresh_token' }
   end
-
 end
