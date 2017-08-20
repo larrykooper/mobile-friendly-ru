@@ -2,8 +2,8 @@
   <% @rows.each do |row| %>
     <div class='row'>
       <div class='top_line'>
-        <%= row.ru_number %>
-        <%= row.outside_inside %>
+        <span class='ru_number'><%= row.ru_number %></span>
+        <span class='outside_inside'><%= row.outside_inside %></span>
       </div>
       <%= row.truncated_description %>
     </div>
