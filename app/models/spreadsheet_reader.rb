@@ -11,10 +11,10 @@ module SpreadsheetReader
 
     @@all_ru_column_headings =
       [:ru_number, :on_now?, :secret_number, :outside_inside,
-      :category_tag, :long_description, :business_hours_only?, :RU_or_NR,
+      :category_tag, :long_description, :business_hours_only?, :ru_or_nr,
       :swiss_cheese, :would_make_me_happy?, :priority, :create_date, :finishable?,
-      :g_or_r, :project?, :bucket_list?, :priority_notes, :evernote_note, :link_1,
-      :link_2, :link_3]
+      :g_or_r, :project?, :bucket_list?, :priority_notes, :evernote_note,
+      :link_1, :link_2, :link_3]
 
     # Returns spreadsheet data, or false if we need authentication
     def SpreadsheetReader.get_sheet_data

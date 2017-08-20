@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
   def new
   end
 
-  # request.env is a Ruby array that contains information about a visiting user and
-  # server environment, including path_info, request_uri etc.
+  # request.env is a Ruby array that contains information about a visiting user
+  # and server environment, including path_info, request_uri and lots more.
 
   # request.env is ENORMOUS.
   # request.env['omniauth.auth'] contains a lot of information,
