@@ -18,6 +18,10 @@ module SpreadsheetReader
        g_or_r project? bucket_list? priority_notes evernote_note
        link_1 link_2 link_3]
 
+  @ru_number_ind = 0
+  @outside_inside_ind = 3
+  @long_description_ind = 5
+
   # Returns spreadsheet data, or false if we need authentication
   def self.sheet_data
     access_token = Token.last.fresh_token
@@ -39,11 +43,28 @@ module SpreadsheetReader
       puts e.backtrace.inspect
     end
     # Return the spreadsheet data by rows
-    # As: [["fuga", "baz"], ["foo", "bar"]]
+    # As: [["fuga", "baz", "gleep"], ["foo", "bar", "zump"]]
     data_as_array = ws.rows
-    SpreadsheetReader.convert_data(data_as_array, headings)
+    SpreadsheetReader.convert_data_to_objects(data_as_array, headings)
   end
 
+  def self.convert_data_to_objects(data_as_array, headings)
+    rows = []
+    first_row = true
+    # Note that first row is column headings
+    data_as_array.each do |row_array|
+      if first_row
+        first_row = false
+        next
+      end
+      ru_item = RuItem.new(row_array[@ru_number_ind], row_array[@outside_inside_ind],
+        row_array[@long_description_ind])
+       rows << ru_item
+    end
+    rows
+  end
+
+  # Method not used, keeping it around for now
   def self.convert_data(data_as_array, headings)
     hashes_array = []
     # Note that first row is column headings

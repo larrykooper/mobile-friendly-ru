@@ -1,3 +1,12 @@
-HELLO THIS IS spreadsheets/index
+<div class='container'>
+  <% @rows.each do |row| %>
+    <div class='row'>
+      <div class='top_line'>
+        <%= row.ru_number %>
+        <%= row.outside_inside %>
+      </div>
+      <%= row.truncated_description %>
+    </div>
 
-<%= @data %>
+  <% end %>
+</div>
