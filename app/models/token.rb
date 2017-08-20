@@ -17,7 +17,6 @@ require 'json'
 # to the (my) application. The token is used when the application requests
 # a resource from the resource server (also at Google).
 class Token < ActiveRecord::Base
-
   def fresh_token
     # public
     # A method to return a valid access token.
@@ -79,8 +78,8 @@ class Token < ActiveRecord::Base
     #   https://developers.google.com/accounts/docs/OAuth2WebServer#refresh
     #   https://developers.google.com/identity/protocols/OAuth2WebServer
     { 'refresh_token' => refresh_token,
-    'client_id' => ENV['MOBILE_RU_CLIENT_ID'],
-    'client_secret' => ENV['MOBILE_RU_CLIENT_SECRET'],
-    'grant_type' => 'refresh_token' }
+      'client_id' => ENV['MOBILE_RU_CLIENT_ID'],
+      'client_secret' => ENV['MOBILE_RU_CLIENT_SECRET'],
+      'grant_type' => 'refresh_token' }
   end
 end
