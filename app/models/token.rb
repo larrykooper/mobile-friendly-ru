@@ -56,8 +56,6 @@ class Token < ActiveRecord::Base
         #   token good for another 60 minutes.
         #
         url = URI("https://www.googleapis.com/oauth2/v3/token")
-        puts "In token model - Message 43"
-        puts self.to_params
         response = Net::HTTP.post_form(url, self.to_params)
         if response.is_a?(Net::HTTPBadRequest)
             puts "Response is 'bad request'"
@@ -75,9 +73,6 @@ class Token < ActiveRecord::Base
         # parses its JSON response, and updates my database
         # with the new access token and expiration date.
         response = request_token_from_google
-        puts "In token model - Message 64"
-        puts response
-        # skip 63-66 if bad
         data = JSON.parse(response.body)
         update_attributes(
             access_token: data['access_token'],

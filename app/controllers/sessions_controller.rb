@@ -17,7 +17,6 @@ class SessionsController < ApplicationController
 
   # 'create' is the oauth2 callback we give to Google
   def create
-    puts "MESSAGE 14 IN CREATE"
     @auth = request.env['omniauth.auth']['credentials']
     # The following statement saves the tokens to the database
     Token.create(
