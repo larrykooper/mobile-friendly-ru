@@ -16,15 +16,17 @@ module SpreadsheetReader
       :g_or_r, :project?, :bucket_list?, :priority_notes, :evernote_note, :link_1,
       :link_2, :link_3]
 
+    # Returns spreadsheet data, or false if we need authentication
     def SpreadsheetReader.get_sheet_data
-        access_token = Token.last.fresh_token
+        begin
+          access_token = Token.last.fresh_token
+        rescue MobileFriendlyRu::Error::NeedsAuthentication
+          return false
+        end
         @@session = GoogleDrive.login_with_oauth(access_token)
 
         sheet_key = ENV['TEST_RU_SHEET_KEY']
         headings = @@all_ru_column_headings
-
-        puts "message 26 - spreadsheet_reader model"
-        puts "sheet_key: " + sheet_key
 
         # worksheets[0] is first worksheet
         # LIVE_RU_SHEET_KEY is the live one
@@ -32,21 +34,20 @@ module SpreadsheetReader
         begin
             ws = @@session.spreadsheet_by_key(sheet_key).worksheets[0]
         rescue Exception => e
-            puts "I am in rescue"
+            puts "I am in rescue!"
             puts "#{$!}"
             puts e.Message
             puts e.backtrace.inspect
         end
         # Return the spreadsheet data by rows
         # As: [["fuga", "baz"], ["foo", "bar"]]
-        puts 'Message 41 - spreadsheet_reader.rb'
         data_as_array = ws.rows
         hashes_array = SpreadsheetReader.convert_data(data_as_array, headings)
-        hashes_array.to_json
     end
 
+    private
+
     def SpreadsheetReader.convert_data(data_as_array, headings)
-        puts 'Message 49 - in convert_data'
         hashes_array = Array.new
         # Note that first row is column headings
         data_as_array.each do |row_array|

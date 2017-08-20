@@ -17,13 +17,14 @@ class SessionsController < ApplicationController
 
   # 'create' is the oauth2 callback we give to Google
   def create
-    puts "MESSAGE 14 IN CREATE"
     @auth = request.env['omniauth.auth']['credentials']
     # The following statement saves the tokens to the database
     Token.create(
       access_token: @auth['token'],
       refresh_token: @auth['refresh_token'],
       expires_at: Time.at(@auth['expires_at']).to_datetime)
+    # Now we ask for the data
+    redirect_to '/spreadsheet/getdata' and return
   end
 
 end
