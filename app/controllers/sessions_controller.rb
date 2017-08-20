@@ -6,8 +6,7 @@ class SessionsController < ApplicationController
   # 'new' renders a view that kicks off the
   #    authorization process - it provides a link that
   #    links to '/auth/google_oauth2'
-  def new
-  end
+  def new; end
 
   # request.env is a Ruby array that contains information about a visiting user
   # and server environment, including path_info, request_uri and lots more.

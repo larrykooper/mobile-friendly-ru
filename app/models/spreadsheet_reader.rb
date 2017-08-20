@@ -19,7 +19,7 @@ module SpreadsheetReader
        link_1 link_2 link_3]
 
   # Returns spreadsheet data, or false if we need authentication
-  def self.get_sheet_data
+  def self.sheet_data
     begin
       access_token = Token.last.fresh_token
     rescue MobileFriendlyRu::Error::NeedsAuthentication
