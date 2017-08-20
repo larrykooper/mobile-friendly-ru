@@ -1,5 +1,6 @@
 # app/controllers/sessions_controller.rb
 # https://www.twilio.com/blog/2014/09/gmail-api-oauth-rails.html
+
 class SessionsController < ApplicationController
   # 'new' renders a view that kicks off the
   #    authorization process - it provides a link that
