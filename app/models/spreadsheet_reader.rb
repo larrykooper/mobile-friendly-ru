@@ -12,10 +12,10 @@ module SpreadsheetReader
 
   @all_ru_column_headings =
     %i[ru_number on_now? secret_number outside_inside
-    category_tag long_description business_hours_only? ru_or_nr
-    swiss_cheese would_make_me_happy? priority create_date finishable?
-    g_or_r project? bucket_list? priority_notes evernote_note
-    link_1 link_2 link_3]
+       category_tag long_description business_hours_only? ru_or_nr
+       swiss_cheese would_make_me_happy? priority create_date finishable?
+       g_or_r project? bucket_list? priority_notes evernote_note
+       link_1 link_2 link_3]
 
   # Returns spreadsheet data, or false if we need authentication
   def self.get_sheet_data
@@ -35,7 +35,7 @@ module SpreadsheetReader
   begin
     ws = @session.spreadsheet_by_key(sheet_key).worksheets[0]
   rescue Exception => e
-    puts "I am in rescue!"
+    puts 'I am in rescue!'
     puts "#{$!}"
     puts e.Message
     puts e.backtrace.inspect
@@ -46,10 +46,8 @@ module SpreadsheetReader
   hashes_array = SpreadsheetReader.convert_data(data_as_array, headings)
   end
 
-  private
-
   def self.convert_data(data_as_array, headings)
-    hashes_array = Array.new
+    hashes_array = []
     # Note that first row is column headings
     data_as_array.each do |row_array|
       data_hash = {}
@@ -62,5 +60,4 @@ module SpreadsheetReader
     end
     hashes_array
   end
-
 end
