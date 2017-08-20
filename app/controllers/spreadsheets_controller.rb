@@ -3,10 +3,9 @@
 class SpreadsheetsController < ApplicationController
   def getdata
     @data = SpreadsheetReader.sheet_data
-
     # rubocop:disable Style/IfUnlessModifier
     unless @data
-      redirect_to '/auth/google_oauth2' && return
+      redirect_to '/auth/google_oauth2' and return
     end
     # rubocop:enable Style/IfUnlessModifier
 
