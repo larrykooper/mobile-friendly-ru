@@ -1,8 +1,8 @@
 # Spreadsheet Reader requests the spreadsheet data from Google,
 # receives it, formats it, and returns it to caller.
 module SpreadsheetReader
-# Adapted from gimite (Hiroshi Ichikawa) with thanks
-# https://github.com/gimite/google-drive-ruby
+  # Adapted from gimite (Hiroshi Ichikawa) with thanks
+  # https://github.com/gimite/google-drive-ruby
 
   require 'rubygems'
   require 'google_drive'
@@ -11,14 +11,14 @@ module SpreadsheetReader
   @session = nil
 
   @all_ru_column_headings =
-    [:ru_number, :on_now?, :secret_number, :outside_inside,
-    :category_tag, :long_description, :business_hours_only?, :ru_or_nr,
-    :swiss_cheese, :would_make_me_happy?, :priority, :create_date, :finishable?,
-    :g_or_r, :project?, :bucket_list?, :priority_notes, :evernote_note,
-    :link_1, :link_2, :link_3]
+    %i[ru_number on_now? secret_number outside_inside
+    category_tag long_description business_hours_only? ru_or_nr
+    swiss_cheese would_make_me_happy? priority create_date finishable?
+    g_or_r project? bucket_list? priority_notes evernote_note
+    link_1 link_2 link_3]
 
   # Returns spreadsheet data, or false if we need authentication
-  def SpreadsheetReader.get_sheet_data
+  def self.get_sheet_data
   begin
     access_token = Token.last.fresh_token
   rescue MobileFriendlyRu::Error::NeedsAuthentication
@@ -48,7 +48,7 @@ module SpreadsheetReader
 
   private
 
-  def SpreadsheetReader.convert_data(data_as_array, headings)
+  def self.convert_data(data_as_array, headings)
     hashes_array = Array.new
     # Note that first row is column headings
     data_as_array.each do |row_array|
