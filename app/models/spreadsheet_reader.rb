@@ -20,9 +20,8 @@ module SpreadsheetReader
 
   # Returns spreadsheet data, or false if we need authentication
   def self.sheet_data
-    begin
-      access_token = Token.last.fresh_token
-    rescue MobileFriendlyRu::Error::NeedsAuthentication
+    access_token = Token.last.fresh_token
+    unless access_token
       return false
     end
     @session = GoogleDrive.login_with_oauth(access_token)
