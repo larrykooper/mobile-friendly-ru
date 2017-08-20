@@ -2,17 +2,16 @@
 # It asks for data from Google.
 class SpreadsheetsController < ApplicationController
   def getdata
-    @data = SpreadsheetReader.sheet_data
-    # rubocop:disable Style/IfUnlessModifier
-    unless @data
+    begin
+      @rows = SpreadsheetReader.sheet_data
+    rescue
       redirect_to '/auth/google_oauth2' and return
     end
-    # rubocop:enable Style/IfUnlessModifier
 
     respond_to do |format|
       format.html { render 'spreadsheets/index' }
-      format.json { render json: @data }
-      format.text { render text: @data }
+      format.json { render json: @rows }
+      format.text { render text: @rows }
     end
   end
 end
