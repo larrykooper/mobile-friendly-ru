@@ -59,13 +59,10 @@ class Token < ActiveRecord::Base
     #   token good for another 60 minutes.
     #
     url = URI("https://www.googleapis.com/oauth2/v3/token")
-    #response = Net::HTTP.post_form(url, self.to_params)
     response = Net::HTTP.post_form(url, to_params)
     if response.is_a?(Net::HTTPBadRequest)
       puts "Response is 'bad request'"
-      puts "******* token.rb L62. About to raise error"
       raise MobileFriendlyRu::Error::NeedsAuthentication.new("Authentication needed")
-      puts "******* token.rb L64, I just raised error"
     end
     puts "Response is NOT bad request"
     response
