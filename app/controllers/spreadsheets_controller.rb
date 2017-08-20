@@ -1,16 +1,16 @@
 class SpreadsheetsController < ApplicationController
 
   def getdata
-    begin
 
-      puts "Controller spreadsheets Message 6"
-
-      @data = SpreadsheetReader.get_sheet_data
-    rescue
-      render :json => {:errors => "There has been a Ruby exception"}, :status => 500
-      return
+    @data = SpreadsheetReader.get_sheet_data
+    unless @data
+      redirect_to '/auth/google_oauth2' and return
     end
+
     respond_to do |format|
+      format.html {
+        render 'spreadsheets/index'
+      }
       format.json {
           render json: @data
       }

@@ -16,8 +16,13 @@ module SpreadsheetReader
       :g_or_r, :project?, :bucket_list?, :priority_notes, :evernote_note, :link_1,
       :link_2, :link_3]
 
+    # Returns spreadsheet data, or false if we need authentication
     def SpreadsheetReader.get_sheet_data
-        access_token = Token.last.fresh_token
+        begin
+          access_token = Token.last.fresh_token
+        rescue MobileFriendlyRu::Error::NeedsAuthentication
+          return false
+        end
         @@session = GoogleDrive.login_with_oauth(access_token)
 
         sheet_key = ENV['TEST_RU_SHEET_KEY']
@@ -38,8 +43,9 @@ module SpreadsheetReader
         # As: [["fuga", "baz"], ["foo", "bar"]]
         data_as_array = ws.rows
         hashes_array = SpreadsheetReader.convert_data(data_as_array, headings)
-        hashes_array.to_json
     end
+
+    private
 
     def SpreadsheetReader.convert_data(data_as_array, headings)
         hashes_array = Array.new
