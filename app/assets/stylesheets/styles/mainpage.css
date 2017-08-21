@@ -43,3 +43,9 @@ div.rows-container > div:nth-of-type(odd) {
   left: 5em;
 }
 
+.item-line {
+  width: 22em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
