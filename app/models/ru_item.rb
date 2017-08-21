@@ -7,10 +7,6 @@ class RuItem
     @ru_number, @outside_inside, @long_description = ru_number, outside_inside, long_description
   end
 
-  def truncated_description
-    long_description[0..40] + '...'
-  end
-
   def outside_inside_truncated
     outside_inside[0..40]
   end
