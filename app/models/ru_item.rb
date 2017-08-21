@@ -8,7 +8,7 @@ class RuItem
   end
 
   def truncated_description
-    long_description[0..30] + '...'
+    long_description[0..40] + '...'
   end
 
 end
