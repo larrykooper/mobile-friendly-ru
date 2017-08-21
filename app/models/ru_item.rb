@@ -11,4 +11,8 @@ class RuItem
     long_description[0..40] + '...'
   end
 
+  def outside_inside_truncated
+    outside_inside[0..40]
+  end
+
 end

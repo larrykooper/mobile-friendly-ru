@@ -16,8 +16,12 @@ body {
   margin-left: 16em;
 }
 
+img.expand {
+  width: 3em;
+}
+
 div.rows-container {
-  margin-top: 2.0em;
+  margin-top: 4em;
 }
 
 div.rows-container > div:nth-of-type(odd) {
@@ -31,9 +35,11 @@ div.rows-container > div:nth-of-type(odd) {
 
 .row-text {
   margin-left: 1em;
+  margin-top: 0.5em;
 }
 
 .outside-inside {
   position: absolute;
   left: 5em;
 }
+
