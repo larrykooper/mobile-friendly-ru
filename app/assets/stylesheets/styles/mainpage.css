@@ -5,7 +5,11 @@ body {
 
 .page-header {
   position: fixed;
-  top: 0.4em;
+  top: 0em;
+  background-color: white;
+  z-index: 20;
+  opacity: 1.0;
+  width: 100%;
 }
 
 .sorting-arrows {
