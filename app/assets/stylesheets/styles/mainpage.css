@@ -38,9 +38,13 @@ div.rows-container > div:nth-of-type(odd) {
   margin-top: 0.5em;
 }
 
+.top-line {
+  font-size: 0.9em;
+}
+
 .outside-inside {
   position: absolute;
-  left: 5em;
+  left: 6em;
 }
 
 .item-line {
