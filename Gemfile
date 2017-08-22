@@ -22,8 +22,8 @@ gem 'google-api-client'
 gem 'google_drive'
 gem 'json'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use Postgres as the database for Active Record
+gem 'pg'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
@@ -71,3 +71,5 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+ruby "2.4.0"
