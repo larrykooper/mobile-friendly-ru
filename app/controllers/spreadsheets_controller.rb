@@ -2,9 +2,8 @@
 # It asks for data from Google.
 class SpreadsheetsController < ApplicationController
   def getdata
-    begin
-      @rows = SpreadsheetReader.sheet_data
-    rescue
+    @rows = SpreadsheetReader.sheet_data
+    unless @rows
       redirect_to '/auth/google_oauth2' and return
     end
 
