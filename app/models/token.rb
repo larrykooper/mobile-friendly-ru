@@ -21,7 +21,13 @@ class Token < ActiveRecord::Base
     # public
     # A method to return a valid access token.
     #  It refreshes if necessary.
-    refresh! if expired?
+    # Called from spreadsheet_reader.sheet_data
+    if expired?
+      refresh!
+    end
+    unless access_token
+      return false
+    end
     access_token
   end
 
@@ -40,11 +46,15 @@ class Token < ActiveRecord::Base
     # parses its JSON response, and updates my database
     # with the new access token and expiration time.
     response = request_token_from_google
+    unless response
+      return false
+    end
     data = JSON.parse(response.body)
     update_attributes(
       access_token: data['access_token'],
       expires_at: Time.now + data['expires_in'].to_i.seconds
     )
+    true
   end
 
   def request_token_from_google
@@ -61,8 +71,7 @@ class Token < ActiveRecord::Base
     response = Net::HTTP.post_form(url, to_params)
     if response.is_a?(Net::HTTPBadRequest)
       puts "Response is 'bad request'"
-      raise MobileFriendlyRu::Error::NeedsAuthentication,
-            'Authentication needed'
+      return false
     end
     puts 'Response is NOT bad request'
     response

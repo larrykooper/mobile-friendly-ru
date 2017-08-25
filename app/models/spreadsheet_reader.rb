@@ -24,7 +24,6 @@ module SpreadsheetReader
 
   # Returns spreadsheet data, or false if we need authentication
   def self.sheet_data
-    #access_token = nil
     access_token = Token.last.try(:fresh_token)
     return false unless access_token
     @session = GoogleDrive.login_with_oauth(access_token)
