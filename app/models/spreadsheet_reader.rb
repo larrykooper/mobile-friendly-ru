@@ -39,8 +39,9 @@ module SpreadsheetReader
     rescue StandardError => e
       puts 'I am in rescue!'
       puts $ERROR_INFO.to_s
-      puts e.Message
+      #puts e.Message
       puts e.backtrace.inspect
+      return false
     end
     # Return the spreadsheet data by rows
     # As: [["fuga", "baz", "gleep"], ["foo", "bar", "zump"]]
