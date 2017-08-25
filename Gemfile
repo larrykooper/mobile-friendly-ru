@@ -21,6 +21,11 @@ gem 'omniauth-google-oauth2'
 gem 'google-api-client'
 gem 'google_drive'
 gem 'json'
+# For authentication
+gem 'devise'
+
+# For config management
+gem 'figaro'
 
 # Use Postgres as the database for Active Record
 gem 'pg'
