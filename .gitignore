@@ -26,3 +26,6 @@
 client_id.json
 tmp
 log
+
+# Ignore application configuration
+/config/application.yml
