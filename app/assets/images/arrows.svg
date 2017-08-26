@@ -1,0 +1,9 @@
+<svg version="1.1"
+     baseProfile="full"
+     width="300" height="150"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <polygon points="42 18, 72 66, 48 60, 48 132, 36 132, 36 60, 12 66"/>
+
+  <polygon points="66 90, 90 96, 90 24, 102 24, 102 96, 126 90, 96 138"/>
+</svg>
