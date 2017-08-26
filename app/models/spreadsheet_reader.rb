@@ -28,7 +28,7 @@ module SpreadsheetReader
     return false unless access_token
     @session = GoogleDrive.login_with_oauth(access_token)
 
-    sheet_key = ENV['TEST_RU_SHEET_KEY']
+    sheet_key = ENV['LIVE_RU_SHEET_KEY']
     headings = @all_ru_column_headings
 
     # worksheets[0] is first worksheet
