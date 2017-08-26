@@ -1,3 +1,9 @@
 $(document).ready(function() {
-    console.log( "You are running jQuery version: " + $.fn.jquery );
+  // jQuery v 1.12.4
+
+  $('.sorting-arrows').click(function() {
+    $('#sorting-dialog').modal();
+  });
+
+
 });  // end- document.ready
