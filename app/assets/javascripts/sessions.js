@@ -21,6 +21,14 @@ function sortRows() {
 function compareFunction(row1, row2) {
   var comp1 = getInOut(row1);
   var comp2 = getInOut(row2);
+  var comp1Outside = isOutside(comp1);
+  var comp2Outside = isOutside(comp2);
+  if (comp1Outside && !comp2Outside) {
+    return -1;
+  }
+  if (!comp1Outside && comp2Outside) {
+    return 1;
+  }
   if (comp1 > comp2) {
     return 1;
   };
@@ -35,5 +43,10 @@ function getInOut(row) {
   var $j = $(row);
   var text =  $j.find('.outside-inside').html();
   return text.trim();
+}
+
+function isOutside(str) {
+  var beginning = str.substring(0, 7);
+  return beginning.toLowerCase() == 'outside';
 }
 
