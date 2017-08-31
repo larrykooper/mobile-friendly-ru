@@ -13,10 +13,15 @@ $(document).ready(function() {
 
 
 function sortRows() {
+  closeDialog();
   var $rows = $('.row');
   $rows.sort(compareFunction);
   $('.rows-container').html($rows);
 }
+
+function closeDialog() {
+  $('#sorting-dialog').modal('hide')
+};
 
 function compareFunction(row1, row2) {
   var comp1 = getInOut(row1);
