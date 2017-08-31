@@ -9,6 +9,8 @@ $(document).ready(function() {
 
   $('.btn-primary').click(sortRows);
 
+  $('.row').click(showRow);
+
 });  // end- document.ready
 
 
@@ -17,6 +19,10 @@ function sortRows() {
   var $rows = $('.row');
   $rows.sort(compareFunction);
   $('.rows-container').html($rows);
+}
+
+function showRow(event) {
+
 }
 
 function closeDialog() {
