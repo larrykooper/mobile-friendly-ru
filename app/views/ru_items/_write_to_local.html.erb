@@ -1,0 +1,5 @@
+<script type="text/javascript">
+  <% @rows.each do |item| %>
+    writeToLocalIfNeeded(<%= raw(item.to_json) %>);
+  <% end %>
+</script>

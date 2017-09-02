@@ -61,3 +61,10 @@ function isOutside(str) {
   return beginning.toLowerCase() == 'outside';
 }
 
+function writeToLocalIfNeeded(item) {
+  // TODO: IF WE HAVE ALREADY CACHED THE LIST, RETURN
+  //console.log("hello from write to local. item follows");
+  //console.log(item);
+  localStorage.setItem(item.ru_number, JSON.stringify(item));
+  var a = 3;  // debug
+}
