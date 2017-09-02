@@ -72,6 +72,6 @@ function isOutside(str) {
 }
 
 function writeToLocalIfNeeded(item) {
-  // TODO: IF WE HAVE ALREADY CACHED THE LIST, RETURN
+  // TODO: IF WE HAVE ALREADY CACHED THE LIST in the last 24 hours, RETURN
   localStorage.setItem(item.ru_number, JSON.stringify(item));
 }
