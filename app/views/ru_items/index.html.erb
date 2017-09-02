@@ -8,18 +8,16 @@
 
 <div class='rows-container'>
   <% @rows.each do |row| %>
-    <div class='row'>
-      <a href='/row/<%= row.ru_number %>'>
-        <div class='row-text'>
-          <div class='top-line'>
-            <span class='ru-number'><%= row.ru_number %></span>
-            <span class='outside-inside'><%= row.outside_inside_truncated %></span>
-          </div>
-          <div class='item-line'>
-            <%= row.long_description %>
-          </div>
-        </div> <!-- row-text -->
-      </a>
+    <div class='row' data-item-number='<%= row.ru_number %>'>
+      <div class='row-text'>
+        <div class='top-line'>
+          <span class='ru-number'><%= row.ru_number %></span>
+          <span class='outside-inside'><%= row.outside_inside_truncated %></span>
+        </div>
+        <div class='item-line'>
+          <%= row.long_description %>
+        </div>
+      </div> <!-- row-text -->
     </div>
   <% end %>
 </div>
