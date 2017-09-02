@@ -33,6 +33,9 @@ gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 
+# for precompiling Handlebars Templates
+gem 'handlebars_assets'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
