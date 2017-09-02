@@ -14,4 +14,5 @@
 //= require turbolinks
 //= require jquery
 //= require bootstrap.min
+//= require handlebars.runtime-v4.0.10
 //= require_tree .
