@@ -22,7 +22,17 @@ function sortRows() {
 }
 
 function showRow(event) {
+  var item, ruNumber;
+  ruNumber = $(this).data("item-number");
+  item = localStorage.getItem(ruNumber);
+  item = JSON.parse(item);
+  renderRow(item);
+}
 
+function renderRow(item) {
+  var html;
+  html = HandlebarsTemplates['full_item'](item);
+  $("body").html(html);
 }
 
 function closeDialog() {
@@ -63,8 +73,5 @@ function isOutside(str) {
 
 function writeToLocalIfNeeded(item) {
   // TODO: IF WE HAVE ALREADY CACHED THE LIST, RETURN
-  //console.log("hello from write to local. item follows");
-  //console.log(item);
   localStorage.setItem(item.ru_number, JSON.stringify(item));
-  var a = 3;  // debug
 }
