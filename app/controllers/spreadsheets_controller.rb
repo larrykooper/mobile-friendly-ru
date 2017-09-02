@@ -8,7 +8,7 @@ class SpreadsheetsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { render 'spreadsheets/index' }
+      format.html { render 'ru_items/index' }
       format.json { render json: @rows }
       format.text { render text: @rows }
     end
