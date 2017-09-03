@@ -98,15 +98,23 @@ body {
 #search-page {
 
   .page-head {
+    width: 98rem;
     background-color: #90c3d4;
+    min-height: 10rem;
   }
 
   .left-arrow {
-    margin-top: 6rem;
+    float: left;
+    width: 10rem;
+  }
+
+  .search-area {
+    float: left;
+    width: 57rem;
+    padding-top: 2rem;
   }
 
   input#search-box {
-    margin: 2rem 0 2rem 17rem;
     border-radius: 1.5rem;
     width: 75rem;
   }
