@@ -61,21 +61,14 @@ body {
 
 #sorting-dialog {
 
-  p {
-    font-size: 1.0rem;
-  }
-
-  h5 {
-    font-size: 1.0rem;
-  }
-
+  h5,
   .btn {
-    font-size: 1.0rem;
+    font-size: inherit;
   }
 
   .btn-primary,
   .btn-secondary {
-    width: 6.0rem;
+    width: 21rem;
   }
 
 }
