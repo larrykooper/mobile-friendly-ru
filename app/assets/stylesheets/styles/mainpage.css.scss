@@ -1,13 +1,14 @@
 body {
   font-family: Arial;
-  font-size: 3.5em;
+  font-size: 3.5rem;
 }
 
 #main-page {
+  width: 110%;
 
-  .page-header {
+  .page-head {
     position: fixed;
-    top: -1.2em;
+    top: -1rem;
     background-color: white;
     z-index: 20;
     opacity: 1.0;
@@ -20,7 +21,7 @@ body {
   }
 
   div.rows-container {
-    margin-top: 4rem;
+    margin-top: 15rem;
   }
 
   div.rows-container > div:nth-of-type(odd) {
@@ -29,25 +30,26 @@ body {
 
   .row {
     border: 1px solid black;
-    min-height: 4.26em;
+    min-height: 12.5rem;
+    padding-left: 3rem;
   }
 
   .row-text {
-    margin-left: 1em;
-    margin-top: 0.5em;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
   }
 
   .top-line {
-    font-size: 1.0em;
+    font-size: 3.5rem;
   }
 
   .outside-inside {
     position: absolute;
-    left: 6em;
+    left: 17rem;
   }
 
   .item-line {
-    width: 27em;
+    width: 103rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -59,20 +61,20 @@ body {
 #sorting-dialog {
 
   p {
-    font-size: 1.0em;
+    font-size: 1.0rem;
   }
 
   h5 {
-    font-size: 1.0em;
+    font-size: 1.0rem;
   }
 
   .btn {
-    font-size: 1.0em;
+    font-size: 1.0rem;
   }
 
   .btn-primary,
   .btn-secondary {
-    width: 6.0em;
+    width: 6.0rem;
   }
 
 }
@@ -101,7 +103,7 @@ body {
 /* search page */
 #search-page {
 
-  .page-header {
+  .page-head {
     background-color: #90c3d4;
   }
 
