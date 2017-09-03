@@ -18,6 +18,7 @@ function doOnDocumentReady() {
   // When user touches a row on the main page
   $('.row').click(showRow);
 
+  // User touches the magnifying glass
   $('.magnifier-span').click(showSearchPage);
 }
 
@@ -45,7 +46,10 @@ function renderRow(item) {
 }
 
 function showSearchPage() {
+  var state;
   var html = HandlebarsTemplates['search_page']();
+  state = {page: "mainpage"};
+  history.pushState(state, "Search", "search");
   $("body").html(html);
 }
 
