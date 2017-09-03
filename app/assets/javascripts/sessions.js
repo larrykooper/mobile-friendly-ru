@@ -1,16 +1,18 @@
 'use strict';
 // jQuery v 1.12.4
 
-
-// Because we are using Turbolinks, we
+// Because we are using Turbolinks, we can't use jQuery
+// document.ready and must use this
 document.addEventListener("turbolinks:load",(doOnDocumentReady));
 
 function doOnDocumentReady() {
-  console.log("I am in the handler for turbolinks");
+  // Set up events and handlers
+
   $('.sorting-arrows').click(function() {
     $('#sorting-dialog').modal();
   });
 
+  // button in the sort dialog
   $('.btn-primary').click(sortRows);
 
   // When user touches a row on the main page
@@ -27,7 +29,6 @@ function sortRows() {
 }
 
 function showRow(event) {
-  console.log("I AM IN showRow");
   var item, ruNumber, state;
   ruNumber = $(this).data("item-number");
   item = localStorage.getItem(ruNumber);
