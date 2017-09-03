@@ -1,20 +1,23 @@
 'use strict';
+// jQuery v 1.12.4
 
-$(document).ready(function() {
-  // jQuery v 1.12.4
 
+// Because we are using Turbolinks, we
+document.addEventListener("turbolinks:load",(doOnDocumentReady));
+
+function doOnDocumentReady() {
+  console.log("I am in the handler for turbolinks");
   $('.sorting-arrows').click(function() {
     $('#sorting-dialog').modal();
   });
 
   $('.btn-primary').click(sortRows);
 
+  // When user touches a row on the main page
   $('.row').click(showRow);
 
   $('.magnifier-span').click(showSearchPage);
-
-});  // end- document.ready
-
+}
 
 function sortRows() {
   closeDialog();
@@ -24,10 +27,13 @@ function sortRows() {
 }
 
 function showRow(event) {
-  var item, ruNumber;
+  console.log("I AM IN showRow");
+  var item, ruNumber, state;
   ruNumber = $(this).data("item-number");
   item = localStorage.getItem(ruNumber);
   item = JSON.parse(item);
+  state = {page: "mainpage"};
+  history.pushState(state, "Item Page", "item/" + ruNumber);
   renderRow(item);
 }
 
