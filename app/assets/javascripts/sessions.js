@@ -20,6 +20,32 @@ function doOnDocumentReady() {
 
   // User touches the magnifying glass
   $('.magnifier-span').click(showSearchPage);
+
+  $(document).on("keypress", "input#search-box", function(e){
+    if (e.which == 13) {
+      doSearch(this.value);
+    }
+  });
+
+} // doOnDocumentReady
+
+function doSearch(query) {
+  var i, item, keys, longdesc, num_items;
+  query = query.toLowerCase();
+  keys = Object.keys(localStorage);
+  num_items = keys.length;
+
+  for (i = 0; i < num_items; i++) {
+    item = localStorage.getItem(keys[i]);
+    if (item && item != 'undefined') {
+      item = JSON.parse(item);
+      longdesc = item.long_description;
+      if (longdesc.toLowerCase().indexOf(query) > -1) {
+        console.log(query + " found in " + longdesc);
+      }
+    }
+  }
+
 }
 
 function sortRows() {
