@@ -11,6 +11,8 @@ $(document).ready(function() {
 
   $('.row').click(showRow);
 
+  $('.magnifier-span').click(showSearchPage);
+
 });  // end- document.ready
 
 
@@ -32,6 +34,11 @@ function showRow(event) {
 function renderRow(item) {
   var html;
   html = HandlebarsTemplates['full_item'](item);
+  $("body").html(html);
+}
+
+function showSearchPage() {
+  var html = HandlebarsTemplates['search_page']();
   $("body").html(html);
 }
 

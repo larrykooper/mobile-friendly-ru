@@ -1,26 +1,28 @@
 <%= render partial: 'ru_items/write_to_local' %>
 <%= render partial: 'ru_items/sorting_popup' %>
-<div class='page-header'>
-  <span class='sorting-arrows'>
-    <%= image_tag("arrows.svg") %>
-  </span>
-  <span class='magnifier-span'>
-    <%= image_tag("magnifier.svg", :class => "magnifier") %>
-  </span>
-</div>
+<div id='main-page'>
+  <div class='page-header'>
+    <span class='sorting-arrows'>
+      <%= image_tag("arrows.svg") %>
+    </span>
+    <span class='magnifier-span'>
+      <%= image_tag("magnifier.svg", :class => "magnifier") %>
+    </span>
+  </div>
 
-<div class='rows-container'>
-  <% @rows.each do |row| %>
-    <div class='row' data-item-number='<%= row.ru_number %>'>
-      <div class='row-text'>
-        <div class='top-line'>
-          <span class='ru-number'><%= row.ru_number %></span>
-          <span class='outside-inside'><%= row.outside_inside_truncated %></span>
-        </div>
-        <div class='item-line'>
-          <%= row.long_description %>
-        </div>
-      </div> <!-- row-text -->
-    </div>
-  <% end %>
+  <div class='rows-container'>
+    <% @rows.each do |row| %>
+      <div class='row' data-item-number='<%= row.ru_number %>'>
+        <div class='row-text'>
+          <div class='top-line'>
+            <span class='ru-number'><%= row.ru_number %></span>
+            <span class='outside-inside'><%= row.outside_inside_truncated %></span>
+          </div>
+          <div class='item-line'>
+            <%= row.long_description %>
+          </div>
+        </div> <!-- row-text -->
+      </div>
+    <% end %>
+  </div>
 </div>
