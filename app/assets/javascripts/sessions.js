@@ -30,7 +30,7 @@ function doOnDocumentReady() {
 } // doOnDocumentReady
 
 function doSearch(query) {
-  var i, item, keys, longdesc, num_items;
+  var html, i, item, keys, longdesc, num_items;
   query = query.toLowerCase();
   keys = Object.keys(localStorage);
   num_items = keys.length;
@@ -41,7 +41,8 @@ function doSearch(query) {
       item = JSON.parse(item);
       longdesc = item.long_description;
       if (longdesc.toLowerCase().indexOf(query) > -1) {
-        console.log(query + " found in " + longdesc);
+        html = HandlebarsTemplates['search_result']({long_description: longdesc});
+        $('.results').append(html);
       }
     }
   }
