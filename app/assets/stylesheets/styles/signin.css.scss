@@ -7,7 +7,7 @@ body.sessions.new {
 .sessions.new {
 
   .form-signin {
-    max-width: 330px;
+    max-width: 41rem;
     padding: 15px;
     margin: 0 auto;
   }
@@ -27,7 +27,7 @@ body.sessions.new {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     padding: 10px;
-    font-size: 16px;
+    font-size: 3rem;
   }
 
   .form-signin .form-control:focus {
@@ -45,4 +45,9 @@ body.sessions.new {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
+
+  .form-signin input[type="submit"] {
+    min-height: 13rem;
+  }
+
 }
