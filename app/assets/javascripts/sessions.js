@@ -21,6 +21,7 @@ function doOnDocumentReady() {
   // User touches the magnifying glass
   $('.magnifier-span').click(showSearchPage);
 
+  // When the user hits 'Return' in search box
   $(document).on("keypress", "input#search-box", function(e){
     if (e.which == 13) {
       doSearch(this.value);
@@ -30,10 +31,12 @@ function doOnDocumentReady() {
 } // doOnDocumentReady
 
 function doSearch(query) {
-  var html, i, item, keys, longdesc, num_items;
+  var html, i, item, keys, longdesc, num_items, $results;
   query = query.toLowerCase();
   keys = Object.keys(localStorage);
   num_items = keys.length;
+  $results = $('.results');
+  $results.html('');
 
   for (i = 0; i < num_items; i++) {
     item = localStorage.getItem(keys[i]);
@@ -42,7 +45,7 @@ function doSearch(query) {
       longdesc = item.long_description;
       if (longdesc.toLowerCase().indexOf(query) > -1) {
         html = HandlebarsTemplates['search_result']({long_description: longdesc});
-        $('.results').append(html);
+        $results.append(html);
       }
     }
   }
