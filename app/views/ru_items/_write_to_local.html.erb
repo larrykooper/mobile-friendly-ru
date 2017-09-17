@@ -1,4 +1,5 @@
 <script type="text/javascript">
+  localStorage.clear();
   <% @rows.each do |item| %>
     writeToLocalIfNeeded(<%= raw(item.to_json) %>);
   <% end %>

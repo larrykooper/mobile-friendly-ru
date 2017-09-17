@@ -38,6 +38,7 @@ function doSearch(query) {
   $results = $('.results');
   $results.html('');
 
+  // Search local storage
   for (i = 0; i < num_items; i++) {
     item = localStorage.getItem(keys[i]);
     if (item && item != 'undefined') {
