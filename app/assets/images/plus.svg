@@ -1,0 +1,11 @@
+<svg
+  width="300" height="200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- A g element is a group  -->
+ <g>
+
+  <line id="svg_1" x1="90" y1="51" x2="90" y2="156"  stroke-width="8" stroke="#000000" fill="none"/>
+  <line id="svg_2" x1="38" y1="104" x2="143" y2="104" stroke-width="8" stroke="#000000" fill="none"/>
+ </g>
+</svg>
