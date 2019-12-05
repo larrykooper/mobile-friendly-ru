@@ -31,7 +31,7 @@ gem 'figaro'
 gem 'pg'
 
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.12'
 
 # for precompiling Handlebars Templates
 gem 'handlebars_assets'
